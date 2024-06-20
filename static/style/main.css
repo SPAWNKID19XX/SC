@@ -73,3 +73,42 @@ form{
     width: 70%;
     background: radial-gradient(circle, rgba(175,175,175,1) 0%, #d2ac67) 50%;
 }
+
+.section_2 img{
+    width: 450px;
+}
+.images_list{
+    margin: auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form_section{
+    margin: 0 auto;
+    width: 750px;
+    margin-bottom: 100px;
+}
+
+.section_3{
+    margin-top: 50px;
+    display: flex;
+    justify-content:space-between;
+}
+
+.text_description_section_3{
+    margin: 50px 0px;
+    font-family: 'Cardo', serif;
+    font-size: 30px;
+    text-align:justify; 
+}
+
+.videos_list{
+    display: flex;
+    justify-content: space-between;
+}
+
+iframe{
+    width: 450px;
+    height: 300px;
+}
