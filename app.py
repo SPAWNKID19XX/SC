@@ -1,3 +1,5 @@
+#Python 3.12.3
+
 from flask import Flask, render_template,redirect,url_for, request
 from form import FormSubscribe
 from secret import SECRET_KEY
