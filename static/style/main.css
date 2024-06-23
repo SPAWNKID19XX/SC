@@ -1,114 +1,103 @@
 body {
-    background-color: black;
-    color: white;
-    letter-spacing: 0.1em;
+  background-color: black;
+  color: white;
+  letter-spacing: 0.1em;
 }
 
-.conteiner{
-    width: 80%;
-    margin: 0 auto;
+.conteiner {
+  width: 80%;
+  margin: 0 auto;
 }
 
-.header_logo img{
-    margin-left: 200px;
-    width: 350px;
+.header_logo img {
+  margin-left: 200px;
+  width: 350px;
 }
 
-.section_1{
-    display: flex;
-    justify-content:space-between;
+.section_1 {
+  display: flex;
+  justify-content: space-between;
 }
 
-.text_section{
-    padding: 0px 25px;
+h1 {
+  font-family: "League Gothic", sans-serif;
+  text-align: center;
 }
 
-h1{
-    font-family: 'League Gothic', sans-serif;
-    font-size: 40px;
-    letter-spacing: 0.1em;
-    text-align: center;
+.text_description {
+  margin: 50px 0px;
+  font-family: "Cardo", serif;
+  text-align: center;
 }
 
-.text_description{
-    margin: 50px 0px;
-    font-family: 'Cardo', serif;
-    font-size: 30px;
-    text-align:center; 
+.text_atention {
+  color: #d2ac67;
+  border-bottom: solid 1px #d2ac67;
 }
 
-.text_atention{
-    color: #d2ac67;
-    border-bottom: solid 1px #d2ac67;
-
+img {
+  width: 100%;
+  border-radius: 30px;
 }
 
-img{
-    width: 650px;
-    border-radius: 30px;
+.header_form {
+  background-color: #d2ac67;
+  text-align: center;
+  width: 90%;
+  margin: 25px auto;
+  padding: 3px;
+  background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;
 }
 
-.header_form{
-    background-color: #d2ac67;
-    text-align: center;
-    width: 90%;
-    margin: 25px auto;
-    padding: 10px;
-    background: radial-gradient(circle, rgba(175,175,175,1) 0%, #d2ac67) 50%;
+form {
+  width: 90%;
+  margin: 0 auto;
+}
+.form-control {
+  margin: 10px auto;
+  width: 70%;
+  border: solid 2px #d2ac67;
 }
 
-form{
-    width: 90%;
-    margin: 0 auto;
-}
-.form-control{
-    margin: 10px auto;
-    width: 70%;
-    border: solid 2px #d2ac67;
+.btn {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;
 }
 
-.btn{
-    display: block;
-    margin: 0 auto;
-    width: 70%;
-    background: radial-gradient(circle, rgba(175,175,175,1) 0%, #d2ac67) 50%;
+.section_2 img {
+  width: 50%;
+}
+.images_list {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
-.section_2 img{
-    width: 450px;
-}
-.images_list{
-    margin: auto;
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
+.form_section {
+  margin: 0 auto;
+  margin-bottom: 100px;
 }
 
-.form_section{
-    margin: 0 auto;
-    width: 750px;
-    margin-bottom: 100px;
+.section_3 {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.section_3{
-    margin-top: 50px;
-    display: flex;
-    justify-content:space-between;
+.text_description_section_3 {
+  font-family: "Cardo", serif;
+  font-size: 20px;
+  text-align: justify;
 }
 
-.text_description_section_3{
-    margin: 50px 0px;
-    font-family: 'Cardo', serif;
-    font-size: 30px;
-    text-align:justify; 
+.videos_list {
+  display: flex;
+  justify-content: space-between;
 }
 
-.videos_list{
-    display: flex;
-    justify-content: space-between;
-}
-
-iframe{
-    width: 450px;
-    height: 300px;
+iframe {
+  width: 450px;
+  height: 300px;
 }
