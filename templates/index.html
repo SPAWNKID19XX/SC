@@ -4,69 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
-
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/main.css') }}" />
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/main.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style/media.css') }}" />
+    
     <title>Сlinica de medicina estética</title>
 </head>
 <body>
-    <div class="conteiner">
+    <div class="container">
         <div class="header_logo">
             <img src="static/img/logos1.png" alt="logo">
         </div>
         <div class="section_1">
-            <div class="text_section">
-                <h1 class="text_title">Médico, conquiste o sucesso com a
+            <div class="row">
+                <div class="col-7">
+                    <h1 class="text_title">Médico, conquiste o sucesso com a
                     tua clinica de medicina estética!
-                </h1>
-                <p class="text_description">
-                    Aprenda a como explodir a sua clinica de
-                    medicina estética com os clientes certos!
-                    Combinando o melhor dos dois mundos:</br>
-                    a prática cínica e o poder do Instagram!
-                </p>
-                <h1 class="text_atention">
-                    100% GRATUITO E ONLINE!
-                </h1>
-                <div class="form_section">
-                    <div class="header_form">
-                        <h3><i class="bi bi-camera-video-fill">Ao vivo pelo Zoom|</i><i class="bi bi-calendar-week-fill">Segunfa-feira 17/06|</i><br><i class="bi bi-calendar-week-fill">Das 20h as 22h (Lisboa)</i></h3>
+                    </h1>
+                    <p class="text_description">
+                        Aprenda a como explodir a sua clinica de
+                        medicina estética com os clientes certos!
+                        Combinando o melhor dos dois mundos:</br>
+                        a prática cínica e o poder do Instagram!
+                    </p>
+                    <h1 class="text_atention">
+                        100% GRATUITO E ONLINE!
+                    </h1>
+                    <div class="form_section">
+                        <div class="header_form">
+                            <h5><i class="bi bi-camera-video-fill">Ao vivo pelo Zoom|</i><i class="bi bi-calendar-week-fill">Segunfa-feira 17/06|</i><br><i class="bi bi-calendar-week-fill">Das 20h as 22h (Lisboa)</i></h5>
+                        </div>
+                        <form name="subscribe_form" action="/" method="post">
+                            {{ form.hidden_tag() }}
+                            {{ form.full_name() }}
+                            {{ form.countries() }}
+                            {{ form.wtsapp() }}
+                            {{ form.submit() }}
+                        </form>
                     </div>
-                    <form name="subscribe_form" action="/" method="post">
-                        {{ form.hidden_tag() }}
-                        {{ form.full_name() }}
-                        {{ form.countries() }}
-                        {{ form.wtsapp() }}
-                        {{ form.submit() }}
-                    </form>
                 </div>
-                <div class="header_logo">
-                    <img src="static/img/logos1.png" alt="logo">
+                <div class="col-5">
+                    <img alt="Dr. Wilsa" src="static/img/_DSC9067.jpg">
                 </div>
+            </div>            
+            <div class="text_section">
+                
+                
             </div>        
             <div class="img_section">
-                <img alt="Dr. Wilsa" src="static/img/_DSC9067.jpg">    
+                    
             </div>        
         </div>
         <div class="section_2">
-            <div class="images_list">
-                <img alt="Dr. Wilsa" src="static/img/_DSC9097 (1).jpg"> 
-                <img alt="Dr. Wilsa" src="static/img/_DSC9098.jpg"> 
-            </div>
             <div class="text_section">
-                <p class="text_description">
+                <h3 class="text_description">
                     És médico e queres abrir a tua própria clínica de medicina estética?
                     A Dr. Wilsa dá formação a médicos, como tu, para que consigam se
                     dedicar à prática, ter mais tempo livre, receber o reconhecimento e a
                     remuneração que merecem.<br>
                     Queres realizar os teu sonhos?
-                </p>
+                </h3>
                 <h1 class="text_title">Masterclass: Tema</h1>
-                <div class="form_section">
+                <div class="form_section form_section_section_2 ">
                     <div class="header_form">
-                        <h3><i class="bi bi-camera-video-fill">Ao vivo pelo Zoom|</i><i class="bi bi-calendar-week-fill">Segunfa-feira 17/06|</i><br><i class="bi bi-calendar-week-fill">Das 20h as 22h (Lisboa)</i></h3>
+                        <h5><i class="bi bi-camera-video-fill">Ao vivo pelo Zoom|</i><i class="bi bi-calendar-week-fill">Segunfa-feira 17/06|</i><br><i class="bi bi-calendar-week-fill">Das 20h as 22h (Lisboa)</i></h5>
                     </div>
                     <form name="subscribe_form" action="/" method="post">
                         {{ form.hidden_tag() }}
@@ -76,37 +78,41 @@
                         {{ form.submit() }}
                     </form>
                 </div>
-            </div>
+            </div>    
+            <h1>IMAGE SLider</h1>
+            <!-- Image Slider -->
         </div>
         <div class="section_3">
-            <div class="text_section">
-                <p class="text_description_section_3">
-                    A Dra. Wilsa, médica especialista em anti-
-                    aging iniciou sua jornada há 5 anos, quando
-                    abriu sua clínica de medicina estética e lançou
-                    seu negócio. Desde então, expandiu suas
-                    atividades para mais três empresas na área da
-                    medicina estética.</p>
-                <p class="text_description_section_3">
-                    Hoje, ela está empenhada em compartilhar esse
-                    conhecimento com médicos que querem
-                    empreender na medicina estética. Foi pensando
-                    nisso que desenvolveu formações online e
-                    gratuita, destinada a ajudar médicos como você
-                    a alcançarem seus objetivos e prosperarem
-                    nesse campo.</p>
-                <div class="header_logo">
-                    <img src="static/img/logos1.png" alt="logo">
+            <div class="row">
+                <div class="col-7">
+                    <p class="text_description_section_3">
+                        A Dra. Wilsa, médica especialista em anti-
+                        aging iniciou sua jornada há 5 anos, quando
+                        abriu sua clínica de medicina estética e lançou
+                        seu negócio. Desde então, expandiu suas
+                        atividades para mais três empresas na área da
+                        medicina estética.</p>
+                    <p class="text_description_section_3">
+                        Hoje, ela está empenhada em compartilhar esse
+                        conhecimento com médicos que querem
+                        empreender na medicina estética. Foi pensando
+                        nisso que desenvolveu formações online e
+                        gratuita, destinada a ajudar médicos como você
+                        a alcançarem seus objetivos e prosperarem
+                        nesse campo.</p>
+                    <div class="header_logo">
+                        <img src="static/img/logos1.png" alt="logo">
+                    </div>
                 </div>
-            </div>        
-            <div class="img_section">
-                <img alt="Dr. Wilsa" src="/static/img/_DSC9059.jpg">    
-            </div>     
+                <div class="col-5">
+                    <img alt="Dr. Wilsa" src="/static/img/_DSC9059.jpg">
+                </div>
+            </div>
         </div>
         <div class="section_2">
             <div class="text_section">
                 <h1 class="text_title">Queres empreender na medicina estética e não sabe como?</h1>
-                <p class="text_description">
+                <p class="text_description_section_3">
                     Inscreve-te para as nossas masterclass online e gratuitas e entre para o nosso
                     grupo exclusivo da Academia Saúde de Sucesso, no whatsapp, onde criarás
                     uma rede de contacto com outros médicos e terás acesso a conteúdos
@@ -132,18 +138,15 @@
                 <h1 class="text_title">Com a formação da academia saúde de sucesso vais ganhar conhecimentos
                     que vão transformar o teu sucesso profissional.
                 </h1>
-                <div class="videos_list">
-                    <iframe src="https://www.youtube.com/embed/JWETm0TgcQg">
-                    </iframe>
-                    <iframe src="https://www.youtube.com/embed/TjPFZaMe2yw">
-                    </iframe>
-                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY">
-                    </iframe>
+                <div class="iframe-container">
+                    <iframe src="https://www.youtube.com/embed/JWETm0TgcQg" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/TjPFZaMe2yw" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allowfullscreen></iframe>
                 </div>
                 
                 <div class="form_section">
                     <div class="header_form">
-                        <h3><i class="bi bi-camera-video-fill">Ao vivo pelo Zoom|</i><i class="bi bi-calendar-week-fill">Segunfa-feira 17/06|</i><br><i class="bi bi-calendar-week-fill">Das 20h as 22h (Lisboa)</i></h3>
+                        <h5><i class="bi bi-camera-video-fill">Ao vivo pelo Zoom|</i><i class="bi bi-calendar-week-fill">Segunfa-feira 17/06|</i><br><i class="bi bi-calendar-week-fill">Das 20h as 22h (Lisboa)</i></h5>
                     </div>
                     <form name="subscribe_form" action="/" method="post">
                         {{ form.hidden_tag() }}
@@ -159,5 +162,10 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
