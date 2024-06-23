@@ -1,0 +1,15 @@
+.container {
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  width: 50%;
+}
+
+.conteiner_msg {
+  width: 50%;
+  margin: 100px auto;
+  align-items: center;
+  text-align: center;
+}
