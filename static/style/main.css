@@ -9,9 +9,9 @@ body {
   margin: 0 auto;
 }
 
-.header_logo img {
-  margin-left: 200px;
-  width: 350px;
+.header_logo {
+  margin: 0 auto;
+  width: 35%;
 }
 
 .section_1 {
@@ -75,6 +75,11 @@ form {
   justify-content: space-between;
 }
 
+.slide_conteiner {
+  width: 40%;
+  margin: 0 auto;
+}
+
 .form_section {
   margin: 0 auto;
   margin-bottom: 100px;
@@ -92,12 +97,12 @@ form {
   text-align: justify;
 }
 
-.videos_list {
+.iframe-container {
   display: flex;
   justify-content: space-between;
 }
 
-iframe {
-  width: 450px;
-  height: 300px;
+.embed-responsive .embed-responsive-item {
+  width: 99%;
+  height: 99%;
 }
