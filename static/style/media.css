@@ -1,0 +1,28 @@
+/* 1400 */
+@media (max-width: 900px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+  .row {
+    display: inline-table;
+  }
+  .col-7 {
+    max-width: 100%;
+  }
+  .col-5 {
+    max-width: 100%;
+  }
+  .iframe-container {
+    display: block;
+    align-items: center;
+    width: 100%;
+  }
+
+  iframe {
+    width: 80%;
+    max-width: 800px;
+    height: 450px;
+    border: none;
+  }
+}
