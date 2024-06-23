@@ -36,8 +36,12 @@ def index():
         if request.method == 'POST':
             send_email(full_name, country, wtsapp)
             send_msg_whatsapp(full_name,wtsapp)
-        return redirect(url_for('index'))
+        return redirect(url_for('accept'))
     return render_template('index.html', form=form)
+
+@app.route('/accept')
+def accept():
+    return render_template('accept_appointment_template.html')
 
 def send_email(name, country, whatsapp):
     recipient = my_secret_data.MAIL_SENDER
