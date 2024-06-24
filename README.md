@@ -10,7 +10,7 @@ Antes de tudo o computador tem que ter o Python 3.12.3 instalado, se nao for o c
 6.Abriri a Pagina web no browser da maquina local "http://127.0.0.1:5000/"
 7. Para a parte logica funcionar correctamnete devem criar o ficheiro my_secret_data.py e introduzir ai o texto que vai a seguir com as suar credenciais.
 
-MAIL_USERNAME = 'exemple@gmail.com'
+MAIL_USERNAME = 'exemple@gmail.com'\n
 MAIL_PASSWORD = 'xxx xxx xxx xxx'
 MAIL_SENDER = 'exemple@gmail.com'
 MAIL_SEND_TO = 'exemple@gmail.com' 
