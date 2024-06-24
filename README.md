@@ -13,6 +13,7 @@ Antes de tudo o computador tem que ter o Python 3.12.3 instalado, se nao for o c
 MAIL_USERNAME = 'exemple@gmail.com'
 MAIL_PASSWORD = 'xxx xxx xxx xxx'
 MAIL_SENDER = 'exemple@gmail.com'
+MAIL_SEND_TO = 'exemple@gmail.com' 
 RECOVERY_CODE = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
 AUTH_TOKEN= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 ACCOUNT_SID = 'XXXXXXXXXXXXXXXXXXXXXX'
