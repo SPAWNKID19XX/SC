@@ -67,7 +67,7 @@ def send_msg_whatsapp(name, whatsapp):
     message = client.messages.create(
     from_='whatsapp:+14155238886',
     body=f'Hello {name}.\n we glad then you wont visit us',
-    to=['whatsapp:+351964696149']
+    to=[f'whatsapp:{whatsapp}']
     )
 
     print(message.sid)
