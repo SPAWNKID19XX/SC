@@ -236,7 +236,7 @@ def index():
         print(success_msg)
         if request.method == 'POST':
             send_email(full_name, country, wtsapp)
-            send_msg_whatsapp(full_name,wtsapp)
+            #send_msg_whatsapp(full_name,wtsapp)
             
         return redirect(url_for('accept'))
     return render_template('index.html', form=form)

@@ -30,9 +30,14 @@
             <img src="/static/img/logos2.png" alt="LOGO" />
           </div>
           <h1>Parabéns, a sua inscrição está quase concluída!</h1>
-          <p>Your submition has been receved</p>
-          <p>We will contact you as soon as it is possible</p>
-          <a class="btn btn-success" href="{{url_for('index')}}">Back Home</a>
+          <p>Para se juntar ao nosso gruppo pelo WhatsApp, clique no butão</p>
+          <a class="btn btn-success" href="{{url_for('index')}}"
+            >Juntate a nos via
+            <i
+              class="bi bi-whatsapp"
+              style="color: rgb(12, 219, 12); margin-left: 10px"
+            ></i
+          ></a>
           <h1>Follow us</h1>
           <div class="media_icons">
             <a
@@ -54,5 +59,12 @@
         </div>
       </div>
     </div>
+    <script>
+      function redirectToWhatsApp() {
+        var whatsappLink = "https://chat.whatsapp.com/your-group-invite-link";
+        window.location.href = whatsappLink;
+      }
+    </script>
+    <!--TODO submit a link to invite persons on whatsup groups-->
   </body>
 </html>
