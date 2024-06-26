@@ -11,7 +11,8 @@ body {
 
 .header_logo {
   margin: 0 auto;
-  width: 35%;
+  width: 50%;
+  position: relative;
 }
 
 .section_1 {
@@ -20,12 +21,15 @@ body {
 }
 
 h1 {
-  font-family: "League Gothic", sans-serif;
+  margin: 50px 0px;
+  font-family: "Cardo", serif;
+  /*font-family: "League Gothic", sans-serif;*/
   text-align: center;
 }
 
 .text_description {
-  margin: 50px 0px;
+  margin: 20px 0px;
+  font-size: 20px;
   font-family: "Cardo", serif;
   text-align: center;
 }
@@ -41,12 +45,18 @@ img {
 }
 
 .header_form {
+  border-radius: 10px;
   background-color: #d2ac67;
   text-align: center;
-  width: 90%;
+  width: 63%;
   margin: 25px auto;
-  padding: 3px;
+  padding: 7px;
   background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;
+}
+
+i {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 form {
@@ -63,6 +73,7 @@ form {
   display: block;
   margin: 0 auto;
   width: 70%;
+  color: white;
   background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;
 }
 
@@ -76,8 +87,7 @@ form {
 }
 
 .slide_conteiner {
-  width: 40%;
-  margin: 0 auto;
+  width: 90%;
 }
 
 .form_section {
@@ -103,6 +113,23 @@ form {
 }
 
 .embed-responsive .embed-responsive-item {
-  width: 99%;
-  height: 99%;
+  border-radius: 10px;
+  width: 90%;
+  height: 90%;
+}
+
+.footer_logo {
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.footer_logo img {
+  width: 30%;
+}
+
+iframe-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
