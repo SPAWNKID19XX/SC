@@ -127,9 +127,3 @@ form {
 .footer_logo img {
   width: 30%;
 }
-
-iframe-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
