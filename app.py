@@ -231,7 +231,7 @@ def index():
         full_name = form.full_name.data
         country = form.countries.data
         wtsapp = form.wtsapp.data
-        country_code_numer = get_couontry_code(country)+wtsapp
+        country_code_numer = f"({get_couontry_code(country)}) {wtsapp}"
         success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
         print(success_msg)
         if request.method == 'POST':
