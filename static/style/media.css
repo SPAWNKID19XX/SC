@@ -16,7 +16,8 @@
   .iframe-container {
     display: block;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    margin-left: 10%;
   }
 
   iframe {
@@ -24,8 +25,10 @@
     max-width: 800px;
     height: 450px;
     border: none;
+    margin: auto;
   }
   .slide_conteiner {
     width: 90%;
+    margin: 0 auto;
   }
 }
