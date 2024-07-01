@@ -1,5 +1,5 @@
 #Python 3.12.3
-
+import os, csv
 from flask import Flask, render_template,redirect,url_for, request
 from form import FormSubscribe
 from secret import SECRET_KEY
@@ -18,6 +18,7 @@ app.config['MAIL_USERNAME'] = my_secret_data.MAIL_USERNAME
 app.config['MAIL_PASSWORD'] = my_secret_data.MAIL_PASSWORD
 app.config['MAIL_DEFAULT_SENDER'] = my_secret_data.MAIL_SENDER
 mail=Mail(app)
+
 
 account_sid = my_secret_data.ACCOUNT_SID
 auth_token = my_secret_data.AUTH_TOKEN
@@ -222,6 +223,23 @@ countries_list = {
     "Zimbabwe": "+263"
 }
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+
+def add_new_rec_to_csv(new_record):
+    users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
+    field_names = ['name', 'country', 'whatsapp']
+    if not os.path.exists(users_csv_file_path):
+        with open(users_csv_file_path, 'w', newline='') as file:
+            writer = csv.DictWriter(users_csv_file_path, fieldnames=field_names)
+            writer.writeheader()
+        print('USERS.CSV has been created')
+    else:
+        print('USERS.CSV already exist!!')
+        with open(users_csv_file_path, 'a', newline='') as file:
+            writer = csv.DictWriter(file, fieldnames=field_names)
+            writer.writerow(new_record)
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -231,11 +249,15 @@ def index():
         full_name = form.full_name.data
         country = form.countries.data
         wtsapp = form.wtsapp.data
-        country_code_numer = f"({get_couontry_code(country)}) {wtsapp}"
+        country_code = get_couontry_code(country)
+        country_code_numer = f"({country_code}) {wtsapp}"
         success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
         print(success_msg)
         if request.method == 'POST':
             send_email(full_name, country, wtsapp)
+            #ADD new user to csv file
+            new_record = {'name':full_name, 'country':country, 'whatsapp':f'{country_code}{wtsapp}'}
+            add_new_rec_to_csv(new_record=new_record)
             #send_msg_whatsapp(full_name,wtsapp)
             
         return redirect(url_for('accept'))
