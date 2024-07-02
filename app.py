@@ -224,21 +224,28 @@ countries_list = {
 }
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
+field_names = ['name', 'country', 'whatsapp']
 
+def create_csv_file():
+    with open(users_csv_file_path, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
+        writer.writeheader()
+    
 
 def add_new_rec_to_csv(new_record):
-    users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
-    field_names = ['name', 'country', 'whatsapp']
-    if not os.path.exists(users_csv_file_path):
-        with open(users_csv_file_path, 'w', newline='') as file:
-            writer = csv.DictWriter(users_csv_file_path, fieldnames=field_names)
-            writer.writeheader()
-        print('USERS.CSV has been created')
-    else:
-        print('USERS.CSV already exist!!')
-        with open(users_csv_file_path, 'a', newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=field_names)
-            writer.writerow(new_record)
+    with open(users_csv_file_path, 'a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
+        writer.writerow(new_record)
+
+
+def exist_whatsapp_number(whatsapp):
+    with open(users_csv_file_path, 'r') as file:
+        reader = csv.DictReader(file, delimiter=',')
+        for rec in reader:
+            if whatsapp in rec.values():
+                return True
+    return False
 
 
 
@@ -256,8 +263,21 @@ def index():
         if request.method == 'POST':
             send_email(full_name, country, wtsapp)
             #ADD new user to csv file
+
+
             new_record = {'name':full_name, 'country':country, 'whatsapp':f'{country_code}{wtsapp}'}
-            add_new_rec_to_csv(new_record=new_record)
+            
+            if not os.path.exists(users_csv_file_path):
+                create_csv_file()
+                print('USERS.CSV has been created')
+            else:
+                print('USERS.CSV already exist!!')
+
+
+            if not exist_whatsapp_number(f'{country_code}{wtsapp}'):
+                add_new_rec_to_csv(new_record=new_record)
+            else:
+                print('whatsapp number already has been registered')
             #send_msg_whatsapp(full_name,wtsapp)
             
         return redirect(url_for('accept'))
