@@ -1,5 +1,5 @@
 #Python 3.12.3
-
+import os, csv
 from flask import Flask, render_template,redirect,url_for, request
 from form import FormSubscribe
 from secret import SECRET_KEY
@@ -18,6 +18,7 @@ app.config['MAIL_USERNAME'] = my_secret_data.MAIL_USERNAME
 app.config['MAIL_PASSWORD'] = my_secret_data.MAIL_PASSWORD
 app.config['MAIL_DEFAULT_SENDER'] = my_secret_data.MAIL_SENDER
 mail=Mail(app)
+
 
 account_sid = my_secret_data.ACCOUNT_SID
 auth_token = my_secret_data.AUTH_TOKEN
@@ -222,6 +223,30 @@ countries_list = {
     "Zimbabwe": "+263"
 }
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
+field_names = ['name', 'country', 'whatsapp']
+
+def create_csv_file():
+    with open(users_csv_file_path, 'w', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
+        writer.writeheader()
+    
+
+def add_new_rec_to_csv(new_record):
+    with open(users_csv_file_path, 'a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
+        writer.writerow(new_record)
+
+
+def exist_whatsapp_number(whatsapp):
+    with open(users_csv_file_path, 'r') as file:
+        reader = csv.DictReader(file, delimiter=',')
+        for rec in reader:
+            if whatsapp in rec.values():
+                return True
+    return False
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -231,11 +256,28 @@ def index():
         full_name = form.full_name.data
         country = form.countries.data
         wtsapp = form.wtsapp.data
-        country_code_numer = f"({get_couontry_code(country)}) {wtsapp}"
+        country_code = get_couontry_code(country)
+        country_code_numer = f"({country_code}) {wtsapp}"
         success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
         print(success_msg)
         if request.method == 'POST':
             send_email(full_name, country, wtsapp)
+            #ADD new user to csv file
+
+
+            new_record = {'name':full_name, 'country':country, 'whatsapp':f'{country_code}{wtsapp}'}
+            
+            if not os.path.exists(users_csv_file_path):
+                create_csv_file()
+                print('USERS.CSV has been created')
+            else:
+                print('USERS.CSV already exist!!')
+
+
+            if not exist_whatsapp_number(f'{country_code}{wtsapp}'):
+                add_new_rec_to_csv(new_record=new_record)
+            else:
+                print('whatsapp number already has been registered')
             #send_msg_whatsapp(full_name,wtsapp)
             
         return redirect(url_for('accept'))
