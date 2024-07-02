@@ -278,6 +278,7 @@ def index():
                 add_new_rec_to_csv(new_record=new_record)
             else:
                 print('whatsapp number already has been registered')
+                return render_template('user_already_exist_template.html', wtsapp=wtsapp, country_code=country_code)
             #send_msg_whatsapp(full_name,wtsapp)
             
         return redirect(url_for('accept'))
@@ -286,6 +287,7 @@ def index():
 @app.route('/accept')
 def accept():
     return render_template('accept_appointment_template.html')
+
 
 def send_email(name, country, whatsapp):
     recipient = my_secret_data.MAIL_SENDER
