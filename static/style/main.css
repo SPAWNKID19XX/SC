@@ -51,7 +51,7 @@ img {
   width: 63%;
   margin: 25px auto;
   padding: 7px;
-  background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;
+  background: #d2ac67;
 }
 
 i {
@@ -74,7 +74,8 @@ form {
   margin: 0 auto;
   width: 70%;
   color: white;
-  background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;
+  /*background: radial-gradient(circle, rgba(175, 175, 175, 1) 0%, #d2ac67) 50%;*/
+  background: #d2ac67;
 }
 
 .section_2 img {
