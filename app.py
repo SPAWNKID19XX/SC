@@ -227,6 +227,7 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
 field_names = ['name', 'country', 'whatsapp']
 
+
 def create_csv_file():
     with open(users_csv_file_path, 'w', newline='') as file:
         writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
@@ -246,7 +247,6 @@ def exist_whatsapp_number(whatsapp):
             if whatsapp in rec.values():
                 return True
     return False
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -284,6 +284,7 @@ def index():
         return redirect(url_for('accept'))
     return render_template('index.html', form=form)
 
+
 @app.route('/accept')
 def accept():
     return render_template('accept_appointment_template.html')
@@ -292,11 +293,12 @@ def accept():
 def send_email(name, country, whatsapp):
     recipient = my_secret_data.MAIL_SENDER
     subject = "New User Subscribe"
-    message_body = f"""New user wont to connect to our webinar
-                        Cantact Data:
+    message_body = f"""Lead para amentoria GOLDPRINT
+                        Dados de contacto:
                             Name :{name}
                             Country :{country} 
-                            watsapp {whatsapp}"""
+                            Watsapp {whatsapp}
+"""
 
     message = Message(subject=subject,
                         recipients=[recipient],
@@ -309,6 +311,7 @@ def send_email(name, country, whatsapp):
         print('DOES NOT')
         print(str(e))
 
+
 def send_msg_whatsapp(name, whatsapp):
     message = client.messages.create(
     from_='whatsapp:+14155238886',
@@ -317,6 +320,7 @@ def send_msg_whatsapp(name, whatsapp):
     )
 
     print(message.sid)
+
 
 def get_couontry_code(country):
     return countries_list[country]
