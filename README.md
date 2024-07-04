@@ -19,6 +19,3 @@ ACCOUNT_SID = 'XXXXXXXXXXXXXXXXXXXXXX'
 Descrieçao de App
 A pagina tem algumas formas repetetivas. em qualquer 1 delas o utilizador pode introduzir os dados e o mesmo ira resseber uma msg comprovativa de inscrieçao via WhatsApp, e tambem a SantiClinic ira receber os dados de utilisador via email.
 para tal precisamos ter acesso ao email e pass especifica que dependendo de cliente de emails pode nos oferecer.
-
-#TODO
-1 . Imagens de apresentaçao dos videos,(cover image pouster=)
