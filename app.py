@@ -326,4 +326,4 @@ def get_couontry_code(country):
     return countries_list[country]
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
