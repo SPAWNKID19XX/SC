@@ -48,3 +48,10 @@
     width: 100%;
   }
 }
+
+/*550*/
+@media (max-width: 550px) {
+  .text_description_section_3 {
+    text-align: left;
+  }
+}
