@@ -37,6 +37,29 @@ h1 {
 .text_atention {
   color: #d2ac67;
   border-bottom: solid 1px #d2ac67;
+
+  background: linear-gradient(
+    to right,
+    #d2ac67 20%,
+    #cf9e43 30%,
+    #ce8705 70%,
+    #e0c083 80%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 img {
