@@ -31,6 +31,13 @@
     width: 90%;
     margin: 0 auto;
   }
+  .main_img {
+    display: none;
+  }
+
+  .secoundary_img {
+    display: block;
+  }
 }
 /*980*/
 
