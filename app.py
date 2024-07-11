@@ -1,12 +1,14 @@
 #Python 3.12.3
 import os, csv
+from datetime import datetime
 from flask import Flask, render_template,redirect,url_for, request
+import openpyxl.workbook
 from form import FormSubscribe
 from secret import SECRET_KEY
 from flask_mail import Mail, Message
 import my_secret_data
 from twilio.rest import Client
-
+from openpyxl import Workbook, load_workbook
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
@@ -225,29 +227,42 @@ countries_list = {
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
-field_names = ['name', 'country', 'whatsapp']
+users_xlsx_file_path = BASE_DIR + '/users.xlsx'
+field_names = ['Date','Name', 'Country', 'Whatsapp']
 
 
-def create_csv_file():
-    with open(users_csv_file_path, 'w', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
-        writer.writeheader()
-    
+def is_exist_whatsapp_number(whatsapp):
+    wb = load_workbook(users_xlsx_file_path)
+    sheet = wb.active
 
-def add_new_rec_to_csv(new_record):
-    with open(users_csv_file_path, 'a', newline='') as file:
-        writer = csv.DictWriter(file, fieldnames=field_names, delimiter=',')
-        writer.writerow(new_record)
-
-
-def exist_whatsapp_number(whatsapp):
-    with open(users_csv_file_path, 'r') as file:
-        reader = csv.DictReader(file, delimiter=',')
-        for rec in reader:
-            if whatsapp in rec.values():
+    for row in sheet.iter_rows(min_row=2, min_col=4, max_col=4):
+        for cell in row:
+            if cell.value == whatsapp:
                 return True
     return False
 
+def add_new_rec_to_xlsx(new_rec_xl):
+    if not os.path.exists(users_xlsx_file_path):        
+        wb = Workbook()
+        sheet = wb.active
+        sheet.title = 'users'
+        sheet.append(field_names)
+        wb.save('users.xlsx')
+    else:
+        wb = load_workbook(users_xlsx_file_path)
+        if 'users' in wb.sheetnames:
+            sheet = wb['users']
+        else:
+            sheet = wb.create_sheet('users')
+    
+    if not is_exist_whatsapp_number(new_rec_xl[-1]):
+        sheet.append(new_rec_xl)
+        wb.save('users.xlsx')
+    else:
+        print(f"{new_rec_xl[-1]} ALREADY EXISTS!!!")
+        return True
+
+    
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -258,36 +273,28 @@ def index():
         wtsapp = form.wtsapp.data
         country_code = get_couontry_code(country)
         country_code_numer = f"({country_code}) {wtsapp}"
+        now = datetime.now()
+        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
         success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
         print(success_msg)
         if request.method == 'POST':
             send_email(full_name, country, wtsapp)
-            #ADD new user to csv file
-
-
-            new_record = {'name':full_name, 'country':country, 'whatsapp':f'{country_code}{wtsapp}'}
             
-            if not os.path.exists(users_csv_file_path):
-                create_csv_file()
-                print('USERS.CSV has been created')
-            else:
-                print('USERS.CSV already exist!!')
-
-
-            if not exist_whatsapp_number(f'{country_code}{wtsapp}'):
-                add_new_rec_to_csv(new_record=new_record)
-            else:
-                print('whatsapp number already has been registered')
-                return render_template('user_already_exist_template.html', wtsapp=wtsapp, country_code=country_code)
-            #send_msg_whatsapp(full_name,wtsapp)
-            
-        return redirect(url_for('accept'))
+            new_rec_xl = [timestamp , full_name, country, f'{country_code}{wtsapp}']
+            #res = add_new_rec_to_xlsx(new_rec_xl)
+            if add_new_rec_to_xlsx(new_rec_xl):
+                return render_template('user_already_exist_template.html', country_code=country_code, wtsapp=wtsapp )
+            return redirect(url_for('accept'))
     return render_template('index.html', form=form)
 
 
 @app.route('/accept')
 def accept():
     return render_template('accept_appointment_template.html')
+
+@app.route('/wsapp_exist')
+def wsapp_exist():
+    return render_template('user_already_exist_template.html', wtsapp=new_rec_xl[-1], country_code=new_rec_xl[-2])
 
 
 def send_email(name, country, whatsapp):
@@ -326,4 +333,4 @@ def get_couontry_code(country):
     return countries_list[country]
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
