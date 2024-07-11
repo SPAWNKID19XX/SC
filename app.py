@@ -372,6 +372,5 @@ if __name__ == '__main__':
 
 
 
-#todo espaço de header_form  ultimas 2 formas aumentar nos screen<900px
 #todo gravar o users no disc com o nome Users_mentoria
 #todo media a partir de 900px para baixo mudar a primeira imagem de dotora
