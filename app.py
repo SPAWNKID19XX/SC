@@ -232,6 +232,10 @@ field_names = ['Date','Name', 'Country', 'Whatsapp']
 
 
 def is_exist_whatsapp_number(whatsapp):
+    '''
+    Check if var whatsapp exist in exel.sheet
+    '''
+
     wb = load_workbook(users_xlsx_file_path)
     sheet = wb.active
 
@@ -242,6 +246,10 @@ def is_exist_whatsapp_number(whatsapp):
     return False
 
 def add_new_rec_to_xlsx(new_rec_xl):
+    '''
+    create a exel file if it does not exist, 
+    and add a new rec in last possition
+    '''
     if not os.path.exists(users_xlsx_file_path):        
         wb = Workbook()
         sheet = wb.active
@@ -263,9 +271,35 @@ def add_new_rec_to_xlsx(new_rec_xl):
         return True
 
     
+def csv_to_exel():
+    '''
+    if csv exist it pass all rec's into exel file 
+    and if number already exist, this rec is ignored.
+    to finish with csv it remove a file
+    '''
+    if os.path.exists(users_csv_file_path):
+        print('CSV Exist')
+        wb = load_workbook(users_xlsx_file_path)
+        sheet = wb['users']
+
+        with open(users_csv_file_path, 'r') as csv_file:
+            reader = csv.reader(csv_file)
+            now = datetime.now()
+            timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+            for row in reader:
+                row.insert(0,timestamp)
+                digits = row[-1] 
+                if digits[1:].isdigit() and not is_exist_whatsapp_number(row[-1]):
+                    sheet.append(row)
+                else:
+                    print(row[-1],'already exist in list')
+            os.remove(users_csv_file_path)
+        wb.save('users.xlsx')
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    csv_to_exel()
     form = FormSubscribe()
     if form.validate_on_submit():
         full_name = form.full_name.data
@@ -291,10 +325,6 @@ def index():
 @app.route('/accept')
 def accept():
     return render_template('accept_appointment_template.html')
-
-@app.route('/wsapp_exist')
-def wsapp_exist():
-    return render_template('user_already_exist_template.html', wtsapp=new_rec_xl[-1], country_code=new_rec_xl[-2])
 
 
 def send_email(name, country, whatsapp):
