@@ -2,3 +2,5 @@ venv/
 /my_secret_data.py
 __pycache__/
 /users.csv
+credentials.json
+/credentials.json

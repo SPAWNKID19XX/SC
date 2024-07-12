@@ -1,7 +1,7 @@
 #Python 3.12.3
 import os, csv
 from datetime import datetime
-from flask import Flask, render_template,redirect,url_for, request
+from flask import Flask, render_template,redirect,url_for, request 
 import openpyxl.workbook
 from form import FormSubscribe
 from secret import SECRET_KEY
