@@ -62,8 +62,16 @@ h1 {
   }
 }
 
+.main_img {
+  display: block;
+  border: #ce8705 1px solid;
+}
+
+.secoundary_img {
+  display: none;
+}
+
 img {
-  border: #0af129 1px solid;
   width: 100%;
   border-radius: 30px;
 }
@@ -88,7 +96,6 @@ form {
   width: 90%;
   margin: 0 auto;
   margin-top: 10%;
-  border: 1px solid red;
 }
 .form-control {
   margin: 10px auto;
