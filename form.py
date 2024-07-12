@@ -205,5 +205,5 @@ countries_list = {
 class FormSubscribe(FlaskForm):
     full_name = StringField('Full Name', validators=[DataRequired()], render_kw={"placeholder": "Nome completo", 'class':'form-control'})
     countries = SelectField('Countries', choices=[(country, f"{country} ({code})") for country, code in countries_list.items()], validators=[DataRequired()], render_kw={"placeholder": "Selecione o país", 'class':'form-control'})
-    wtsapp = StringField('WhatsApp', validators=[DataRequired()], render_kw={"placeholder": "WhatsApp (com indicativo)", 'class':'form-control'})
+    wtsapp = StringField('WhatsApp', validators=[DataRequired()], render_kw={"placeholder": "WhatsApp", 'class':'form-control'})
     submit = SubmitField('Inscreve-te já',render_kw={'class':'btn btn_firs_form btn-success'})
