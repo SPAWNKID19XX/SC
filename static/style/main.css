@@ -64,6 +64,7 @@ h1 {
 
 .main_img {
   display: block;
+  border: #ce8705 1px solid;
 }
 
 .secoundary_img {
