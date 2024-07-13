@@ -230,9 +230,12 @@ countries_list = {
 }
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+print('------------------basedir',BASE_DIR)
 users_csv_file_path = os.path.join(BASE_DIR, 'users.csv')
 credentials_file_path = os.path.join(BASE_DIR, 'credentials.json')
-users_xlsx_file_path = BASE_DIR + '/users.xlsx'
+print('------------------credentials',credentials_file_path)
+users_xlsx_file_path = os.path.join(BASE_DIR, 'users.xlsx')
+print('------------------exel',users_xlsx_file_path)
 field_names = ['Date','Name', 'Country', 'Whatsapp']
 
 
@@ -254,7 +257,7 @@ def create_exel_file_users():
     sheet = wb.active
     sheet.title = 'users'
     sheet.append(field_names)
-    wb.save('mysite/users.xlsx')
+    wb.save(users_xlsx_file_path)
 
 def is_exist_whatsapp_number(whatsapp):
     '''
@@ -286,7 +289,7 @@ def add_new_rec_to_xlsx(new_rec_xl):
     
     if not is_exist_whatsapp_number(new_rec_xl[-1]):
         sheet.append(new_rec_xl)
-        wb.save('users.xlsx')
+        wb.save(users_xlsx_file_path)
         connect_and_insert_new_data_into_google_sheets(new_rec_xl)
     else:
         print(f"{new_rec_xl[-1]} ALREADY EXISTS!!!")
@@ -319,7 +322,7 @@ def csv_to_exel():
                 else:
                     print(row[-1],'already exist in list')
             os.remove(users_csv_file_path)
-        wb.save('users.xlsx')
+        wb.save(users_xlsx_file_path)
 
 
 @app.route('/', methods=['GET', 'POST'])
