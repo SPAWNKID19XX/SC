@@ -355,12 +355,13 @@ def accept():
 def send_email(name, country, whatsapp):
     recipient = my_secret_data.MAIL_SENDER
     subject = "New User Subscribe"
-    message_body = f"""Lead para amentoria GOLDPRINT
-                        Dados de contacto:
-                            Name :{name}
-                            Country :{country} 
-                            Watsapp {whatsapp}
-"""
+    message_body = f"""
+    Lead para amentoria GOLDPRINT
+    Dados de contacto:
+    Name :{name}
+    Country :{country} 
+    Watsapp {whatsapp}
+    """
 
     message = Message(subject=subject,
                         recipients=[recipient],
