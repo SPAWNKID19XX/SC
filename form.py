@@ -200,9 +200,12 @@ countries_list = {
     "Zimbabwe": "+263"
 }
 
-
-
 class FormSubscribe(FlaskForm):
+    zoom_string = "Ao vivo pelo Zoom"
+    schadule_date="Segunda-feira 29/07"
+    schadule_time="Das 20h as 22h (Lisboa)"
+    
+    
     full_name = StringField('Full Name', validators=[DataRequired()], render_kw={"placeholder": "Nome completo", 'class':'form-control'})
     countries = SelectField('Countries', choices=[(country, f"{country} ({code})") for country, code in countries_list.items()], validators=[DataRequired()], render_kw={"placeholder": "Selecione o país", 'class':'form-control'})
     wtsapp = StringField('WhatsApp', validators=[DataRequired()], render_kw={"placeholder": "WhatsApp", 'class':'form-control'})
