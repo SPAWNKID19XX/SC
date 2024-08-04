@@ -236,6 +236,63 @@ users_xlsx_file_path = os.path.join(BASE_DIR, 'users.xlsx')
 field_names = ['Date','Name', 'Country', 'Whatsapp']
 
 
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    csv_to_exel()
+    form = FormSubscribe()
+    if form.validate_on_submit():
+        full_name = form.full_name.data
+        country = form.countries.data
+        wtsapp = form.wtsapp.data
+        country_code = get_couontry_code(country)
+        country_code_numer = f"({country_code}) {wtsapp}"
+        now = datetime.now()
+        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+        success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
+        print(success_msg)
+        if request.method == 'POST':
+            send_email(full_name, country, wtsapp)
+            
+            new_rec_xl = [timestamp , full_name, country, f'{country_code}{wtsapp}']
+            #res = add_new_rec_to_xlsx(new_rec_xl)
+            if add_new_rec_to_xlsx(new_rec_xl):
+                return render_template('user_already_exist_template.html', country_code=country_code, wtsapp=wtsapp )
+            return redirect(url_for('accept'))
+    return render_template('index.html', form=form)
+
+
+@app.route('/accept')
+def accept():
+    return render_template('accept_appointment_template.html')
+
+@app.route('/gold_print_mentoria')
+def gold_print_mentoria():
+    return render_template('gold_print_mentoria.html')
+
+@app.route('/gold_print_form', methods=['GET', 'POST'])
+def gold_print_form():
+    form = FormSubscribe()
+    if form.validate_on_submit():
+        full_name = form.full_name.data
+        country = form.countries.data
+        wtsapp = form.wtsapp.data
+        country_code = get_couontry_code(country)
+        country_code_numer = f"({country_code}) {wtsapp}"
+        now = datetime.now()
+        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+        success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
+        print(success_msg)
+        if request.method == 'POST':
+            send_email(full_name, country, wtsapp)
+            
+            new_rec_xl = [timestamp , full_name, country, f'{country_code}{wtsapp}']
+            #res = add_new_rec_to_xlsx(new_rec_xl)
+            if add_new_rec_to_xlsx(new_rec_xl):
+                return render_template('user_already_exist_template.html', country_code=country_code, wtsapp=wtsapp )
+            return redirect(url_for('accept'))
+    return render_template('form_page.html', form=form)
+
+
 def connect_and_insert_new_data_into_google_sheets(new_rec:list):
     scopes = [
     "https://www.googleapis.com/auth/spreadsheets"
@@ -321,65 +378,6 @@ def csv_to_exel():
             os.remove(users_csv_file_path)
         wb.save(users_xlsx_file_path)
 
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    csv_to_exel()
-    form = FormSubscribe()
-    if form.validate_on_submit():
-        full_name = form.full_name.data
-        country = form.countries.data
-        wtsapp = form.wtsapp.data
-        country_code = get_couontry_code(country)
-        country_code_numer = f"({country_code}) {wtsapp}"
-        now = datetime.now()
-        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
-        success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
-        print(success_msg)
-        if request.method == 'POST':
-            send_email(full_name, country, wtsapp)
-            
-            new_rec_xl = [timestamp , full_name, country, f'{country_code}{wtsapp}']
-            #res = add_new_rec_to_xlsx(new_rec_xl)
-            if add_new_rec_to_xlsx(new_rec_xl):
-                return render_template('user_already_exist_template.html', country_code=country_code, wtsapp=wtsapp )
-            return redirect(url_for('accept'))
-    return render_template('index.html', form=form)
-
-
-@app.route('/accept')
-def accept():
-    return render_template('accept_appointment_template.html')
-
-@app.route('/gold_print_mentoria')
-def gold_print_mentoria():
-    return render_template('gold_print_mentoria.html')
-
-@app.route('/gold_print_form', methods=['GET', 'POST'])
-def gold_print_form():
-    form = FormSubscribe()
-    if form.validate_on_submit():
-        full_name = form.full_name.data
-        country = form.countries.data
-        wtsapp = form.wtsapp.data
-        country_code = get_couontry_code(country)
-        country_code_numer = f"({country_code}) {wtsapp}"
-        now = datetime.now()
-        timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
-        success_msg = f"Thank you for subscribing, {full_name} from {country}! We will contact you at {country_code_numer}."
-        print(success_msg)
-        if request.method == 'POST':
-            send_email(full_name, country, wtsapp)
-            
-            new_rec_xl = [timestamp , full_name, country, f'{country_code}{wtsapp}']
-            #res = add_new_rec_to_xlsx(new_rec_xl)
-            if add_new_rec_to_xlsx(new_rec_xl):
-                return render_template('user_already_exist_template.html', country_code=country_code, wtsapp=wtsapp )
-            return redirect(url_for('accept'))
-    return render_template('form_page.html', form=form)
-
-
-
 def send_email(name, country, whatsapp):
     recipient = my_secret_data.MAIL_SENDER
     subject = "New User Subscribe"
@@ -418,8 +416,3 @@ def get_couontry_code(country):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
-#todo gravar o users no disc com o nome Users_mentoria
-#todo media a partir de 900px para baixo mudar a primeira imagem de dotora
