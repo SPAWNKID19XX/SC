@@ -4,3 +4,4 @@ __pycache__/
 /users.csv
 credentials.json
 /credentials.json
+/.vscode

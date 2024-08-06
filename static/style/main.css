@@ -8,9 +8,32 @@ body {
   width: 80%;
   margin: 0 auto;
 }
-.navbar {
-  border: #e4c206 1px solid;
-  background-color: red;
+
+.my_custom_nav_bar {
+  margin-top: 50px;
+  background-color: rgb(0, 0, 0);
+}
+
+.my_custom_nav_bar img {
+  width: 75px;
+  border-radius: 50%;
+}
+
+.my_custom_nav_bar ul {
+  margin: auto;
+}
+
+.togle_button {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-size: 24px;
+}
+ul li a {
+  color: white;
+}
+
+ul li a:hover {
+  color: #d2ac67;
 }
 
 .header_logo {
@@ -184,17 +207,31 @@ form {
 }
 
 .footer_logo {
-  display: flex;
-  justify-content: center;
-  margin-top: 50px;
+  width: 100%;
 }
 
 .footer_logo img {
-  width: 30%;
+  width: 100%;
 }
 
 footer {
   text-align: center;
   padding: 10px;
-  font-size: 0.5rem;
+}
+
+.rights_author {
+}
+
+.rights_text p {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+.col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer_social_media {
+  display: block;
 }
