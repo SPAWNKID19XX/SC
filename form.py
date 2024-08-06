@@ -202,7 +202,7 @@ countries_list = {
 
 class FormSubscribe(FlaskForm):
     zoom_string = "Ao vivo pelo Zoom"
-    schadule_date="Segunda-feira 29/07"
+    schadule_date="Brevemente a anunciar"
     schadule_time="Das 20h as 22h (Lisboa)"
     
     

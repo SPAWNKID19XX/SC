@@ -298,11 +298,9 @@ def connect_and_insert_new_data_into_google_sheets(new_rec:list):
     "https://www.googleapis.com/auth/spreadsheets"
 ]
     creds = Credentials.from_service_account_file('credentials.json', scopes=scopes)
-
     client = gspread.authorize(creds)
     SHEET_ID = "1957zv5nNuQyZ3W4DoM41ThCyJaoWQGqJArKlNiCQJkM"
     sheet = client.open_by_key(SHEET_ID)
-
     values_list = sheet.sheet1.append_row(new_rec)
     
 
