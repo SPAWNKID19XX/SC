@@ -69,4 +69,14 @@
   .more_top_espace_form {
     margin-top: 75px;
   }
+  .the_gold_print_section ul {
+    width: 95%;
+  }
+  .cart_row {
+    display: block;
+  }
+  .custom_cart {
+    margin: 0 auto;
+    border: red 1px solid;
+  }
 }

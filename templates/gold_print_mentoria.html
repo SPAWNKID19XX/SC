@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block title %} The Gold Print {% endblock %} {%
 block content %}
-<div class="the_gold_print_section_1">
+<div class="the_gold_print_section">
   <h1 class="text_title">
     És medico empreender e buscas formação especializada?
   </h1>
@@ -13,44 +13,47 @@ block content %}
   </h4>
 </div>
 
-<div class="the_gold_print_section_2">
-  <div class="row">
-    <div class="col-5">
-      <h2>A mentoria "The Gold Print é para quem?"</h2>
-    </div>
-    <div class="col-7">
-      <ul>
-        <li>
-          Medicos de medicina estetica que desejam equilibrar a vida profecional
-          o seu negocio e vida pessoal
-        </li>
-        <li>
-          empreendedores que estao dispostos de sair da zona de conforto e
-          arriscar
-        </li>
-        <li>
-          Quem esta estagnado e quere avançar na sua carreira e crescer
-          professionalmente
-        </li>
-      </ul>
+<div class="the_gold_print_section">
+  <div class="text_title">
+    <h2>A mentoria "The Gold Print é para quem?"</h2>
+  </div>
+  <div class="section_2_list_description">
+    <ul>
+      <li>
+        Medicos de medicina estetica que desejam equilibrar a vida profecional o
+        seu negocio e vida pessoal
+      </li>
+      <li>
+        Empreendedores que estao dispostos de sair da zona de conforto e
+        arriscar
+      </li>
+      <li>
+        Quem esta estagnado e quere avançar na sua carreira e crescer
+        professionalmente
+      </li>
+    </ul>
+  </div>
+  <div class="the_gold_print_section_stamp_button">
+    <!--<div class="stamp_gold_print">
+      <img src="/static/img/logo_landingpage.png" alt="Logo Img Page" />
+    </div>-->
+    <div class="button_gold_print_redirect">
+      <a
+        href="https://api.whatsapp.com/send?phone=351913471971"
+        target="_blank"
+        class="btn btn-success more_info_gold_print_btn gold_print_wts_btn"
+        >Quero me inscrever!</a
+      >
     </div>
   </div>
-  <div class="button_gold_print_redirect">
-    <a
-      href="https://api.whatsapp.com/send?phone=351913471971"
-      target="_blank"
-      class="btn btn-success more_info_gold_print"
-      >Quero me inscrever!</a
-    >
-  </div>
-  <div class="the_gold_print_section_3">
+
+  <div class="the_gold_print_section_carts">
     <h1 class="text_title">Em que consiste a mentoria Gold Print</h1>
     <h4 class="text_description">
-      Durabte 6 meses vou-te ajudar a gerir a tua clinica de medicina estetica,
+      Durante 6 meses vou-te ajudar a gerir a tua clinica de medicina estetica,
       fidelizar os clientes e criar um posicionamento forte para o teu negocio
       com varias estrategias
     </h4>
-
     <div class="cart_row">
       <div
         class="card border-success mb-3 custom_cart"
@@ -121,31 +124,29 @@ block content %}
       <a
         href="{{ url_for('gold_print_form') }}"
         target="_blank"
-        class="btn btn-success more_info_gold_print"
+        class="btn btn-success more_info_gold_print_btn_form_redirect"
         >Quero me inscrever!</a
       >
     </div>
   </div>
 </div>
 
-<div class="the_gold_print_section_4">
+<div class="the_gold_print_section">
   <div class="row">
-    <div class="col-7">
-      <div class="context">
-        <h2>Muito prazer, sou a Dra Wilsa Santiago</h2>
-        <p>
-          Sou mediaca especialista em anti-aging, dona de 3 empresas na aria de
-          medicina estetica, mae, mentora e esposa. falar sobre como tudo
-          começou, esplorar a dor de doutora para abrir a sua clinica, como era
-          no inicio e o que ela teve de fazer para mudar e chegar aqui.<br />
-          Hojé em dia sou dona de varias empresas, SANTICLINIC, SANTISKIN,
-          ACADEMIA DE SUCCESSO.
-        </p>
-      </div>
+    <div class="content_text">
+      <h2>Muito prazer, sou a Dra Wilsa Santiago</h2>
+      <p>
+        Sou mediaca especialista em anti-aging, dona de 3 empresas na aria de
+        medicina estetica, mae, mentora e esposa. falar sobre como tudo começou,
+        esplorar a dor de doutora para abrir a sua clinica, como era no inicio e
+        o que ela teve de fazer para mudar e chegar aqui.<br />
+        Hojé em dia sou dona de varias empresas, SANTICLINIC, SANTISKIN,
+        ACADEMIA DE SUCCESSO.
+      </p>
     </div>
-    <div class="col-5">
+    <div class="the_gold_print_section_img">
       <img
-        class="main_img"
+        class="the_gold_print_img"
         alt="Dr.Wilsa Academia Saude de Sucesso"
         src="/static/img/_DSC9059.jpg"
       />

@@ -4,45 +4,53 @@ body {
   text-align: center;
 }
 
-.the_gold_print_section_1 {
+.the_gold_print_section {
   margin-top: 50px;
 }
 
-.the_gold_print_section_2 {
-  margin-top: 50px;
+.the_gold_print_section ul {
+  border: #d2ac67 2px dotted;
+  width: 70%;
+  margin: 0 auto;
 }
-
-.the_gold_print_section_2 .row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.the_gold_print_section_2 li {
+.the_gold_print_section li {
   font-size: large;
   margin-top: 25px;
 }
 
-.more_info_gold_print {
+.the_gold_print_section_stamp_button {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.stamp_gold_print {
+  width: 40%;
+}
+.stamp_gold_print img {
+  border-radius: 0%;
+  width: 70%;
+}
+
+.button_gold_print_redirect {
+  align-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.more_info_gold_print_btn {
+  width: 100%;
   border-radius: 50px;
   padding: 30px;
   background: radial-gradient(#fffba4, #d6b65f);
   color: black;
   cursor: pointer;
   margin: -5px;
-  width: 50%;
   margin: 0 auto;
   box-shadow: 0 0 0 5px #d2ac67;
 }
 
-.more_info_gold_print:hover {
-  color: rgb(78, 224, 10);
-}
-
 .the_gold_print_section_3 {
-  margin-top: 50px;
-}
-.button_gold_print_redirect {
   margin-top: 50px;
 }
 
@@ -60,21 +68,18 @@ body {
   min-width: 300px;
 }
 
-.oficina_list {
-  margin-top: 10px; /* Adjust the value as needed */
-}
-
-.the_gold_print_section_4 {
-  margin-top: 100px;
-}
-
-.the_gold_print_section_4 .col-7 {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
-img {
+.more_info_gold_print_btn_form_redirect {
   width: 100%;
-  border-radius: 30px;
+  border-radius: 50px;
+  padding: 30px;
+  background: radial-gradient(#fffba4, #d6b65f);
+  color: black;
+  cursor: pointer;
+  margin: -5px;
+  margin: 0 auto;
+  box-shadow: 0 0 0 5px #d2ac67;
+}
+
+.the_gold_print_section .row {
+  display: block;
 }

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!--todo coment next line
+    <meta http-equiv="refresh" content="5" > -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -77,7 +79,7 @@
               <a class="nav-link" href="{{ url_for('gold_print_form') }}">Formulario</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contactos</a>
+              <a class="nav-link" href="#footer">Contactos</a>
             </li>
           </ul>
         </div>
@@ -89,9 +91,12 @@
       {% block content %}
       <h1>CONTENT BLOCK</h1>
       {% endblock %}
+    </div>
+
+
       <div class="conteiner">
         <div class="footer">
-          <footer>
+          <footer id="footer">
             <div class="row">
               <div class="col">
                 <div class="footer_logo">
@@ -112,9 +117,6 @@
                       </li>
                       <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('gold_print_form') }}">Formulario</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Contactos</a>
                       </li>
                     </ul>
                 </div>
@@ -176,9 +178,18 @@
                 <div class="right_column">
                   <div class="contacts">
                     <h4>Contacts</h4>
-                    Tel:987987987<br>
-                    Tel:987987987<br>
-                    Tel:987987987<br>
+                    <div class="mobile_footer_contacts">
+                      <i class="bi bi-phone-vibrate-fill"></i>
+                      <a href="tel:+351913471971">+351913471971</a>
+                    </div>
+                    <div class="Whatsap_footer_contacts">
+                      <i class="bi bi-whatsapp"></i>
+                      <a href="https://api.whatsapp.com/send?phone=351913471971" target="_blank">+351913471971</a>
+                    </div>
+                    <div class="email_footer_contacts">
+                      <!--<i class="bi bi-envelope"></i>-->
+                      <a href="mailto:academiasaudesucesso@gmail.com"> academiasaudesucesso@gmail.com</a>
+                    </div>
                   </div>
                   <div class="rights_text">
                     <p>Todos os direitos estão reservados| COPYRIGHT © 2024| Drª. Wilsa
@@ -192,6 +203,7 @@
           </footer>
         </div>
       </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

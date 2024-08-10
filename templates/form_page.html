@@ -9,7 +9,12 @@ Saúde de Sucesso {% endblock %} {% block content %}
       <i class="bi bi-clock-fill"> {{form.schadule_time}} </i>
     </h5>
   </div>
-  <form name="subscribe_form" action="/" method="post">
+  <form
+    id="subscribe_form"
+    name="subscribe_form"
+    action="https://script.google.com/macros/s/AKfycbw2OSUShWYC7SQk7NzMREnNA_-johFdwrUSSAghKBr6yNBqk4Czh0aUy3KkQUL5Lur9Wg/exec"
+    method="post"
+  >
     {{ form.hidden_tag() }} {{ form.full_name() }} {{ form.countries() }} {{
     form.wtsapp() }} {{ form.submit() }}
   </form>
