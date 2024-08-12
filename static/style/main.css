@@ -147,6 +147,9 @@ form {
 }
 .btn-success:hover {
   box-shadow: 0px 0px 40px yellowgreen;
+  transform: scale(1.1) translateY(-0px);
+  color: #0af129;
+
 }
 .btn_firs_form {
   margin-bottom: 0px;
@@ -205,20 +208,25 @@ form {
   box-shadow: 0 0 0 5px #d2ac67;
 }
 
+.more_info_gold_print:hover{
+  color: #000000;
+  box-shadow: 0px 0px 40px #d2ac67;
+  transform: scale(1.1) translateY(-0px);
+
+}
+
 .footer_logo {
   width: 100%;
 }
 
 .footer_logo img {
   width: 100%;
+  border-radius: 50%;
 }
 
 footer {
   text-align: center;
   padding: 10px;
-}
-
-.rights_author {
 }
 
 .rights_text p {
