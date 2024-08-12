@@ -38,7 +38,6 @@ body {
   margin: 0 auto;
   color: aqua;
 }
-
 .more_info_gold_print_btn {
   width: 100%;
   border-radius: 50px;
@@ -64,6 +63,8 @@ body {
 .cart_row ul{
   width: 100%;
   text-align: left;
+  border: none;
+  list-style: url('/static/icons/check-lg.svg');  
 }
 
 .custom_cart {
@@ -81,7 +82,7 @@ body {
   border-radius: 30px;
   padding: 20px 0px;
 }
-
+/*
 .more_info_gold_print_btn_form_redirect {
   width: 100%;
   border-radius: 50px;
@@ -92,7 +93,7 @@ body {
   margin: -5px;
   margin: 0 auto;
   box-shadow: 0 0 0 5px #d2ac67;
-}
+}*/
 
 .the_gold_print_section .row {
   display: block;
