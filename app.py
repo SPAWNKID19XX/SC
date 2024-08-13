@@ -12,8 +12,6 @@ from openpyxl import Workbook, load_workbook
 import gspread
 from google.oauth2.service_account import Credentials
 import countries
-from pythonmonkey import require as js_require
-import json
 
 countries_list = countries.countries_list
 
