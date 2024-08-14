@@ -1,9 +1,24 @@
+/*780 */
+@media (max-width: 780px) {
+  .show_mobile {
+    display:inline;
+  }
+  .button_gold_print_redirect a{
+    font-weight: 100;
+    font-size: 15px;
+  }
+  .more_info_gold_print{
+    padding :10px;
+}
+
 /* 900 */
 @media (max-width: 900px) {
   .container {
     width: 100%;
     margin: 0 auto;
   }
+  .more_info_gold_print{
+    padding :20px;
 
   .footer_logo {
     display: none;
@@ -44,6 +59,9 @@
     display: none;
   }
 
+  .button_gold_print_redirect a{
+    font-weight: 200;
+  }
   .secoundary_img {
     display: block;
   }
@@ -78,5 +96,8 @@
   .custom_cart {
     margin: 0 auto;
     border: red 1px solid;
+  }
+  .button_gold_print_redirect a{
+    font-weight: 400;
   }
 }

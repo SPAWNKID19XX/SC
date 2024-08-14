@@ -208,6 +208,10 @@ form {
   box-shadow: 0 0 0 5px #d2ac67;
 }
 
+  .button_gold_print_redirect a{
+    font-weight: 700;
+  }
+
 .more_info_gold_print:hover{
   color: #000000;
   box-shadow: 0px 0px 40px #d2ac67;

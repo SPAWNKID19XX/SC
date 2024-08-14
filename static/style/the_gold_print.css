@@ -8,6 +8,10 @@ body {
   margin-top: 50px;
 }
 
+.hide{
+    display:none;
+}
+
 .the_gold_print_section ul {
   border: #d2ac67 2px dotted;
   width: 70%;
@@ -18,6 +22,7 @@ body {
   font-size: large;
   margin-top: 25px;
 }
+
 
 .the_gold_print_section_stamp_button {
   margin-top: 50px;
@@ -65,7 +70,13 @@ body {
   width: 100%;
   text-align: left;
   border: none;
-  list-style: url('/static/icons/check-lg.svg');  
+  list-style: none;
+}
+
+.cart_row ul li::before {
+  content: "✓";
+  color: green;
+  margin-right: 10px;
 }
 
 .custom_cart {
