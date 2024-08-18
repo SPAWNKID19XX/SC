@@ -191,52 +191,82 @@
       Com a formação da Academia Saúde de Sucesso, vais ganhar
       conhecimentos que vão transformar o teu sucesso profissional.
     </h1>
-    <div class="iframe-container">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-          class="embed-responsive-item"
-          src="https://www.youtube.com/embed/GlFw-C4ADrA"
-          poster="/static/img/logos2.png"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-          class="embed-responsive-item"
-          src="https://www.youtube.com/embed/ibZAeyOQ_uI"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe
-          class="embed-responsive-item"
-          src="https://www.youtube.com/embed/hbalAc7I9SA"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
-    <div class="container">
-      <div class="form_section">
-        <div class="header_form more_top_espace_form">
-          <h5>
-            <i class="bi bi-camera-video-fill"> {{form.zoom_string}} </i><br />
-            <i class="bi bi-calendar3"> {{form.schadule_date}} </i><br />
-            <i class="bi bi-clock-fill"> {{form.schadule_time}} </i>
-          </h5>
+	  <h1>Testemunhos</h1>
+      <div class="row video_space">
+        <div class="col ">
+          <video
+          style="margin-top:25px;"
+          id="my-player1"
+          class="video-js vjs-default-skin my_custom_video"
+          controls
+          poster="/static/img/logo_landingpage.png"
+          data-setup='{
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "hhttps://www.youtube.com/embed/GlFw-C4ADrA"
+            }]
+          }'
+          ></video>
         </div>
-        <form name="subscribe_form" action="/" method="post">
-          {{ form.hidden_tag() }} {{ form.full_name() }} {{ form.countries()
-          }} {{ form.wtsapp() }} {{ form.submit() }}
-        </form>
-      </div>
-    </div>
 
-    <div class="container">
-        <h1 class="text_title">
-          És médico, empreendes e buscas formação especializada?
-        </h1>
-        <div class="button_gold_print_redirect">
-          <a href="{{ url_for('gold_print_mentoria') }}" class="btn btn-success more_info_gold_print">Descobre mais sobre a mentoria Gold Print.</a>
+        <div class="col">
+          <video
+          style="margin-top:25px;"
+          id="my-player2"
+          class="video-js vjs-default-skin my_custom_video"
+          controls
+          poster="/static/img/logo_landingpage.png"
+          data-setup='{
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "https://www.youtube.com/embed/ibZAeyOQ_uI"
+            }]
+          }'
+          ></video>
         </div>
+
+        <div class="col">
+          <video
+          style="margin-top:25px;"
+          id="my-player3"
+          class="video-js vjs-default-skin my_custom_video"
+          controls
+          poster="/static/img/logo_landingpage.png"
+          data-setup='{
+            "techOrder": ["youtube"],
+            "sources": [{
+              "type": "video/youtube",
+              "src": "https://www.youtube.com/embed/hbalAc7I9SA"
+            }]
+          }'
+          ></video>
+        </div>
+      </div>
     </div>
+  <div class="container">
+    <div class="form_section">
+      <div class="header_form more_top_espace_form">
+        <h5>
+          <i class="bi bi-camera-video-fill"> {{form.zoom_string}} </i><br />
+          <i class="bi bi-calendar3"> {{form.schadule_date}} </i><br />
+          <i class="bi bi-clock-fill"> {{form.schadule_time}} </i>
+        </h5>
+      </div>
+      <form name="subscribe_form" action="/" method="post">
+        {{ form.hidden_tag() }} {{ form.full_name() }} {{ form.countries()
+        }} {{ form.wtsapp() }} {{ form.submit() }}
+      </form>
+    </div>
+</div>
+
+<div class="container">
+    <h1 class="text_title">
+      És médico, empreendes e buscas formação especializada?
+    </h1>
+    <div class="button_gold_print_redirect">
+      <a href="{{ url_for('gold_print_mentoria') }}" class="btn btn-success more_info_gold_print">Descobre mais sobre a mentoria Gold Print.</a>
+    </div>
+</div>
 {% endblock %}
