@@ -10,6 +10,10 @@
   .more_info_gold_print{
     padding :10px;
   }
+  video {
+    display: block; /* Ensure it's visible */
+    visibility: visible; /* Ensure it's visible */
+  }
 }
 
 /* 900 */
@@ -95,6 +99,12 @@
   .cart_row {
     display: block;
   }
+  .video_space{
+    display:block;
+    width:70%;
+    margin:0 auto;
+  }
+
   .custom_cart {
     margin: 0 auto;
     border: red 1px solid;

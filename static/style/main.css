@@ -185,20 +185,10 @@ form {
   text-align: justify;
 }
 
-/*.iframe-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.iframe-container .video{
-  width: 32%;
-}*/
-
 .my_custom_video {
-  width:100%;
-  height: 300px;
+    width: 100%;
+    height: 300px;
 }
-
 
 .embed-responsive .embed-responsive-item {
   border-radius: 10px;
