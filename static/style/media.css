@@ -1,4 +1,10 @@
-/*780 */
+/* 600 */
+@media (max-width: 600px) {
+  .video_space {
+    width: 100% !important;
+  }
+}
+/*780*/
 @media (max-width: 780px) {
   .show_mobile {
     display:inline;
@@ -105,7 +111,7 @@
   .video_space{
     display:block;
     width:70%;
-    margin:0 auto;
+    /*margin:0 auto;*/
   }
 
   .custom_cart {
