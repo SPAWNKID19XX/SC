@@ -1,8 +1,10 @@
 {% extends 'base.html' %} {% block title %} Academia Saúde de Sucesso {% endblock %} 
 {% block content %}
-<h1 class="text_title">
+<div class="container">
+  <h1 class="text_title">
     Alcança o Sucesso Absoluto na tua Clínica de Medicina Estética!
   </h1>
+</div>
   <div class="section_1">
     <div class="row">
       <div class="col-7">
@@ -46,6 +48,8 @@
       </div>
     </div>
   </div>
+
+<div class="container">
   <div class="section_2">
     <div class="text_section">
       <h3 class="text_description">
@@ -73,6 +77,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container">
   <div class="section_3">
     <div class="row">
       <div class="col-5">
@@ -157,6 +163,8 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container">
   <div class="section_2">
     <div class="text_section">
       <h1 class="text_title">
@@ -168,8 +176,12 @@
         rede de contactos com outros médicos e terás acesso a conteúdos incríveis todos os
         dias. Do que estás à espera?"
       </p>
+    </div>
+  </div>
+</div>
 
-      <div class="form_section">
+<div class="container">
+  <div class="form_section">
         <div class="header_form more_top_espace_form">
           <h5>
             <i class="bi bi-camera-video-fill"> {{form.zoom_string}} </i><br />
@@ -182,71 +194,75 @@
           }} {{ form.wtsapp() }} {{ form.submit() }}
         </form>
       </div>
-    </div>
-  </div>
 </div>
+
+
+
+
 <div class="section_2">
-  <div class="text_section">
-    <h1 class="text_title">
-      Com a formação da Academia Saúde de Sucesso, vais ganhar
-      conhecimentos que vão transformar o teu sucesso profissional.
-    </h1>
-	  <h1>Testemunhos</h1>
-      <div class="row video_space">
-        <div class="col ">
-          <video
-          style="margin-top:25px;"
-          id="my-player1"
-          class="video-js vjs-default-skin my_custom_video"
-          controls
-          poster="/static/img/logo_landingpage.png"
-          data-setup='{
-            "techOrder": ["youtube"],
-            "sources": [{
-              "type": "video/youtube",
-              "src": "hhttps://www.youtube.com/embed/GlFw-C4ADrA"
-            }]
-          }'
-          ></video>
-        </div>
+    <div class="text_section">
+      <h1 class="text_title">
+        Com a formação da Academia Saúde de Sucesso, vais ganhar
+        conhecimentos que vão transformar o teu sucesso profissional.
+      </h1>
+        <h1>Testemunhos</h1>
+        <div class="row video_space">
+          <div class="col ">
+            <video
+            style="margin:25px 0px 25px 0px;"
+            id="my-player1"
+            class="video-js vjs-default-skin my_custom_video"
+            controls
+            poster="/static/img/logo_landingpage.png"
+            data-setup='{
+              "techOrder": ["youtube"],
+              "sources": [{
+                "type": "video/youtube",
+                "src": "hhttps://www.youtube.com/embed/GlFw-C4ADrA"
+              }]
+            }'
+            ></video>
+          </div>
 
-        <div class="col">
-          <video
-          style="margin-top:25px;"
-          id="my-player2"
-          class="video-js vjs-default-skin my_custom_video"
-          controls
-          poster="/static/img/logo_landingpage.png"
-          data-setup='{
-            "techOrder": ["youtube"],
-            "sources": [{
-              "type": "video/youtube",
-              "src": "https://www.youtube.com/embed/ibZAeyOQ_uI"
-            }]
-          }'
-          ></video>
-        </div>
+          <div class="col">
+            <video
+            style="margin:25px 0px 25px 0px;"
+            id="my-player2"
+            class="video-js vjs-default-skin my_custom_video"
+            controls
+            poster="/static/img/logo_landingpage.png"
+            data-setup='{
+              "techOrder": ["youtube"],
+              "sources": [{
+                "type": "video/youtube",
+                "src": "https://www.youtube.com/embed/ibZAeyOQ_uI"
+              }]
+            }'
+            ></video>
+          </div>
 
-        <div class="col">
-          <video
-          style="margin-top:25px;"
-          id="my-player3"
-          class="video-js vjs-default-skin my_custom_video"
-          controls
-          poster="/static/img/logo_landingpage.png"
-          data-setup='{
-            "techOrder": ["youtube"],
-            "sources": [{
-              "type": "video/youtube",
-              "src": "https://www.youtube.com/embed/hbalAc7I9SA"
-            }]
-          }'
-          ></video>
+          <div class="col">
+            <video
+            style="margin:25px 0px 25px 0px;"
+            id="my-player3"
+            class="video-js vjs-default-skin my_custom_video"
+            controls
+            poster="/static/img/logo_landingpage.png"
+            data-setup='{
+              "techOrder": ["youtube"],
+              "sources": [{
+                "type": "video/youtube",
+                "src": "https://www.youtube.com/embed/hbalAc7I9SA"
+              }]
+            }'
+            ></video>
+          </div>
         </div>
       </div>
-    </div>
-  <div class="container">
-    <div class="form_section">
+</div>
+
+<div class="container">
+  <div class="form_section">
       <div class="header_form more_top_espace_form">
         <h5>
           <i class="bi bi-camera-video-fill"> {{form.zoom_string}} </i><br />
@@ -269,4 +285,7 @@
       <a href="{{ url_for('gold_print_mentoria') }}" class="btn btn-success more_info_gold_print">Descobre mais sobre a mentoria Gold Print.</a>
     </div>
 </div>
+
+
+
 {% endblock %}
